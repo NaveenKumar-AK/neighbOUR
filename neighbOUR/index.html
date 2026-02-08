@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeighbOUR</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg"></div>
+
+<!-- LOGIN CARD -->
+<div class="card" id="loginCard">
+  <h1 class="title">NeighbOUR</h1>
+  <p class="subtitle">Welcome back</p>
+
+  <div class="form">
+    <input type="text" placeholder="Email or phone">
+    <input type="password" placeholder="Password">
+
+    <div class="remember-row">
+      <label class="remember">
+        <input type="checkbox">
+        <span>Remember me</span>
+      </label>
+      <a href="#" class="forgot">Forgot password?</a>
+    </div>
+
+    <button class="btn blue">Login</button>
+
+    <div class="divider">or</div>
+
+    <button class="social">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg">
+      Continue with Google
+    </button>
+
+    <button class="social">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg">
+      Continue with Facebook
+    </button>
+
+    <p class="switch">
+      Don’t have an account?
+      <a onclick="showRegister()">Create account</a>
+    </p>
+  </div>
+</div>
+
+<!-- REGISTER CARD -->
+<div class="card wide" id="registerCard" style="display:none;">
+  <h1 class="title">Create account</h1>
+
+  <div class="upload-wrap">
+    <label class="upload">
+      +
+      <input type="file">
+    </label>
+  </div>
+
+  <div class="form grid">
+    <input placeholder="Full name">
+    <input placeholder="Phone number">
+    <input placeholder="Email address" class="wide">
+
+    <input id="pass" type="password" placeholder="Password" onkeyup="strength()">
+    <input placeholder="Confirm password">
+    <div class="strength wide"><div id="bar"></div></div>
+
+    <input placeholder="Address" class="wide">
+  </div>
+
+  <div class="terms">
+    <label class="check">
+      <input type="checkbox">
+      <span>I agree to Terms & Conditions</span>
+    </label>
+    <label class="check">
+      <input type="checkbox">
+      <span>I accept Privacy Policy</span>
+    </label>
+  </div>
+
+  <button class="btn green">Register</button>
+
+  <p class="switch">
+    Already have an account?
+    <a onclick="showLogin()">Login</a>
+  </p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
