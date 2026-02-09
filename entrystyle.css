@@ -1,0 +1,335 @@
+/* ENTRY PAGE STYLES */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: #f8fafc;
+  color: #1e293b;
+  overflow-x: hidden;
+}
+
+/* ===================== SPLASH SCREEN ===================== */
+
+.splash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #f0f9ff 0%, #f0fdf4 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: splashOut 0.8s ease-out 3s forwards;
+}
+
+.splash-content {
+  text-align: center;
+  animation: splashPulse 0.6s ease-out;
+}
+
+.splash-logo {
+  width: 160px;
+  height: 160px;
+  margin-bottom: 20px;
+  animation: splashLogoMove 0.8s ease-out 3s forwards;
+}
+
+.splash-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #1e293b;
+  letter-spacing: -1px;
+}
+
+.splash-title span {
+  background: linear-gradient(135deg, #2563eb 0%, #2d6a4f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Splash animations */
+@keyframes splashPulse {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes splashLogoMove {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-80px) scale(0.5); opacity: 1; }
+}
+
+@keyframes splashOut {
+  0% { opacity: 1; visibility: visible; }
+  99% { opacity: 0; visibility: visible; }
+  100% { opacity: 0; visibility: hidden; }
+}
+
+/* ===================== CONTAINER & LAYOUT ===================== */
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===================== HEADER ===================== */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+}
+
+.brand-name {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1e293b;
+  letter-spacing: -0.5px;
+}
+
+.brand-name span {
+  background: linear-gradient(135deg, #2563eb 0%, #2d6a4f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===================== TAGLINE ===================== */
+
+.tagline {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.tagline p {
+  font-size: 18px;
+  color: #64748b;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+/* ===================== ROLES GRID ===================== */
+
+.roles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 60px;
+}
+
+/* ===================== ROLE CARD ===================== */
+
+.role-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 48px 32px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.role-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  border-color: transparent;
+}
+
+.role-card h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+
+.role-card p {
+  font-size: 15px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 8px 0 0 0;
+}
+
+.cta {
+  font-weight: 600;
+  font-size: 14px;
+  color: #2563eb;
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin-top: 8px;
+}
+
+.role-card:hover .cta {
+  transform: translateX(4px);
+}
+
+/* Role Icon Container */
+.role-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+}
+
+.role-icon svg {
+  width: 48px;
+  height: 48px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+/* Color schemes for each role */
+
+.role-card.seeker {
+  border-top: 3px solid #2563eb;
+}
+
+.role-card.seeker .role-icon {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.role-card.seeker:hover .role-icon {
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+}
+
+.role-card.provider {
+  border-top: 3px solid #2d6a4f;
+}
+
+.role-card.provider .role-icon {
+  background: #dcfce7;
+  color: #2d6a4f;
+}
+
+.role-card.provider:hover .role-icon {
+  background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+}
+
+.role-card.admin {
+  border-top: 3px solid #7c3aed;
+}
+
+.role-card.admin .role-icon {
+  background: #ede9fe;
+  color: #7c3aed;
+}
+
+.role-card.admin:hover .role-icon {
+  background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+}
+
+/* ===================== RESPONSIVE DESIGN ===================== */
+
+@media (max-width: 1200px) {
+  .roles-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  
+  .container {
+    padding: 40px 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .roles-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .container {
+    padding: 32px 20px;
+  }
+  
+  .header {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  
+  .logo {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .brand-name {
+    font-size: 28px;
+  }
+  
+  .tagline {
+    margin-bottom: 40px;
+  }
+  
+  .tagline p {
+    font-size: 16px;
+  }
+  
+  .role-card {
+    padding: 36px 24px;
+  }
+  
+  .role-card h2 {
+    font-size: 20px;
+  }
+}
+
+/* ===================== HIGH DPI SCREENS ===================== */
+
+@media (min-width: 1920px) {
+  .container {
+    padding: 80px 60px;
+  }
+  
+  .header {
+    margin-bottom: 60px;
+  }
+  
+  .brand-name {
+    font-size: 40px;
+  }
+  
+  .logo {
+    width: 72px;
+    height: 72px;
+  }
+  
+  .role-card {
+    padding: 56px 40px;
+  }
+  
+  .role-card h2 {
+    font-size: 28px;
+  }
+}
