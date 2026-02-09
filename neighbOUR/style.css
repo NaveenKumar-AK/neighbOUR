@@ -17,7 +17,7 @@ body {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxkVAtYgEticb53IPOQzLfKA97ehfz7sybVQ&s") center/cover;
+  background: url("https://img.buzzfeed.com/buzzfeed-static/static/2015-11/16/19/enhanced/webdr09/original-1468-1447720219-5.jpg") center/cover;
   filter: brightness(.6);
 }
 
@@ -43,12 +43,6 @@ body {
 /* wider register card */
 .card.wide {
   width: 640px;
-}
-
-/* ensure long register forms scroll instead of breaking layout */
-.card.wide#registerCard, .card.wide#registerCard .form {
-  max-height: 80vh;
-  overflow: auto;
 }
 
 /* title */
@@ -97,105 +91,6 @@ input:focus {
   border-color: #2563eb;
   background: #fff;
   box-shadow: 0 0 6px rgba(37,99,235,0.4);
-}
-
-/* textarea */
-textarea {
-  width: 100%;
-  min-height: 90px;
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #e5e7eb;
-  background: #f9fafb;
-  resize: vertical;
-  font-size: 15px;
-}
-
-/* checkbox group layout */
-.checkbox-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 16px;
-  align-items: center;
-}
-.availability {
-  display: flex;
-  flex-direction: column;
-}
-
-/* service category select */
-select {
-  width: 100%;
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #e5e7eb;
-  background: #f9fafb;
-  font-size: 15px;
-}
-
-/* day pills */
-.day-pills {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-.day-pill {
-  padding: 8px 10px;
-  border-radius: 999px;
-  border: 1px solid #e5e7eb;
-  background: #fff;
-  cursor: pointer;
-  color: #444;
-}
-.day-pill.active {
-  background: linear-gradient(135deg, #2563eb, #1e40af);
-  color: #fff;
-  border-color: transparent;
-}
-
-/* small tweaks for hidden input display */
-#serviceOther {
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #e5e7eb;
-  background: #f9fafb;
-  font-size: 15px;
-}
-
-/* styled file upload controls */
-.file-upload {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px dashed #d1d5db;
-  background: #fff;
-}
-.file-btn {
-  padding: 8px 12px;
-  border-radius: 8px;
-  background: #eef2ff;
-  border: 1px solid #c7d2fe;
-  color: #2563eb;
-  cursor: pointer;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-}
-.file-btn input { display:none; }
-.file-name {
-  color: #6b7280;
-  font-size: 14px;
-  flex: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-@media(max-width:700px){
-  .file-upload { flex-direction: column; align-items: stretch; }
-  .file-name { width: 100%; }
 }
 
 /* remember row */

@@ -21,18 +21,20 @@ function navigateTo(role) {
   
   // Navigate after fade
   setTimeout(() => {
-    switch(role) {
-      case 'seeker':
-        window.location.href = 'loginpage.html';
-        break;
-      case 'provider':
-        window.location.href = 'serviceproviderlogin.html';
-        break;
-      case 'admin':
-        window.location.href = 'adminlogin.html';
-        break;
-      default:
-        console.warn('Unknown role:', role);
+    // Map role identifiers to actual files in the neighbOUR folder
+    if (role === 'index' || role === 'seeker') {
+      // Open the site index located inside the neighbOUR subfolder
+      window.location.href = './neighbOUR/index.html';
+      return;
     }
+    if (role === 'serviceproviderlogin' || role === 'provider') {
+      window.location.href = './serviceproviderlogin.html';
+      return;
+    }
+    if (role === 'admin') {
+      window.location.href = './adminlogin.html';
+      return;
+    }
+    console.warn('Unknown role:', role);
   }, 300);
 }
