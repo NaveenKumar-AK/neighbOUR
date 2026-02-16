@@ -27,7 +27,15 @@
       <a href="#" class="forgot">Forgot password?</a>
     </div>
 
-    <button class="btn blue">Login</button>
+    <!-- CAPTCHA Section -->
+    <div class="captcha-section" style="margin: 12px 0; padding: 10px; background: #f5f5f5; border-radius: 8px; text-align: center;">
+      <label style="display: block; margin-bottom: 6px; font-weight: bold; font-size: 13px;">Security Verification</label>
+      <div class="captcha-box" id="captcha" style="font-size: 20px; font-weight: bold; letter-spacing: 4px; background: #fff; padding: 8px 15px; display: inline-block; margin-bottom: 8px; user-select: none; border: 1px solid #ddd; border-radius: 4px;"></div><br>
+      <input type="text" id="captchaInput" placeholder="Enter code" style="margin: 6px 0; padding: 6px; font-size: 13px; width: 150px;">
+      <button type="button" onclick="generateCaptcha()" style="padding: 5px 10px; margin-left: 5px; cursor: pointer; background: #f0f0f0; border: 1px solid #ccc; border-radius: 4px; font-size: 12px;">Refresh</button>
+    </div>
+
+    <button class="btn blue" onclick="return validateLogin()">Login</button>
 
     <div class="divider">or</div>
 
@@ -128,6 +136,14 @@
 
     <input id="bankName" name="bankName" placeholder="Bank name (optional)">
     <input id="bankAcc" name="bankAcc" placeholder="Account number (optional)">
+
+    <!-- CAPTCHA Section for Registration -->
+    <div class="captcha-section wide" style="margin: 12px 0; padding: 10px; background: #f5f5f5; border-radius: 8px; text-align: center;">
+      <label style="display: block; margin-bottom: 6px; font-weight: bold; font-size: 13px;">Security Verification</label>
+      <div class="captcha-box" id="captcha" style="font-size: 20px; font-weight: bold; letter-spacing: 4px; background: #fff; padding: 8px 15px; display: inline-block; margin-bottom: 8px; user-select: none; border: 1px solid #ddd; border-radius: 4px;"></div><br>
+      <input type="text" id="captchaInput" placeholder="Enter code" style="margin: 6px 0; padding: 6px; font-size: 13px; width: 150px;">
+      <button type="button" onclick="generateCaptcha()" style="padding: 5px 10px; margin-left: 5px; cursor: pointer; background: #f0f0f0; border: 1px solid #ccc; border-radius: 4px; font-size: 12px;">Refresh</button>
+    </div>
   </div>
 
   <div class="terms">
@@ -141,7 +157,7 @@
     </label>
   </div>
 
-  <button class="btn green" id="providerRegister">Register as Provider</button>
+  <button class="btn green" id="providerRegister" onclick="return validateRegister()">Register as Provider</button>
 
   <p class="switch">
     Already have an account?
