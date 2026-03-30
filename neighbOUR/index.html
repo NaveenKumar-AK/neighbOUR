@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeighbOUR</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg"></div>
+
+<!-- LOGIN CARD -->
+<div class="card" id="loginCard">
+  <h1 class="title">NeighbOUR</h1>
+  <p class="subtitle">Welcome back</p>
+
+  <div class="form">
+    <input type="text" placeholder="Email or phone">
+    <input type="password" placeholder="Password">
+
+    <div class="remember-row">
+      <label class="remember">
+        <input type="checkbox">
+        <span>Remember me</span>
+      </label>
+      <a href="#" class="forgot">Forgot password?</a>
+    </div>
+
+    <!-- CAPTCHA Section -->
+    <div class="captcha-section" style="margin: 12px 0; padding: 10px; background: #f5f5f5; border-radius: 8px; text-align: center;">
+      <label style="display: block; margin-bottom: 6px; font-weight: bold; font-size: 13px;">Security Verification</label>
+      <div class="captcha-box" id="captcha" style="font-size: 20px; font-weight: bold; letter-spacing: 4px; background: #fff; padding: 8px 15px; display: inline-block; margin-bottom: 8px; user-select: none; border: 1px solid #ddd; border-radius: 4px;"></div><br>
+      <input type="text" id="captchaInput" placeholder="Enter code" style="margin: 6px 0; padding: 6px; font-size: 13px; width: 150px;">
+      <button type="button" onclick="generateCaptcha()" style="padding: 5px 10px; margin-left: 5px; cursor: pointer; background: #f0f0f0; border: 1px solid #ccc; border-radius: 4px; font-size: 12px;">Refresh</button>
+    </div>
+
+    <button class="btn blue" onclick="return validateLogin()">Login</button>
+
+    <div class="divider">or</div>
+
+    <button class="social">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg">
+      Continue with Google
+    </button>
+
+    <button class="social">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg">
+      Continue with Facebook
+    </button>
+
+    <p class="switch">
+      Don’t have an account?
+      <a onclick="showRegister()">Create account</a>
+    </p>
+  </div>
+</div>
+
+<!-- REGISTER CARD -->
+<div class="card wide" id="registerCard" style="display:none;">
+  <h1 class="title">Create account</h1>
+
+  <div class="upload-wrap">
+    <label class="upload">
+      +
+      <input type="file">
+    </label>
+  </div>
+
+  <div class="form grid">
+    <input placeholder="Full name">
+    <input placeholder="Phone number">
+    <input placeholder="Email address" class="wide">
+
+    <input id="pass" type="password" placeholder="Password" onkeyup="strength()">
+    <input placeholder="Confirm password">
+    <div class="strength wide"><div id="bar"></div></div>
+
+    <input placeholder="Address" class="wide">
+
+    <!-- CAPTCHA Section for Registration -->
+    <div class="captcha-section" style="margin: 12px 0; padding: 10px; background: #f5f5f5; border-radius: 8px; text-align: center;">
+      <label style="display: block; margin-bottom: 6px; font-weight: bold; font-size: 13px;">Security Verification</label>
+      <div class="captcha-box" id="captcha" style="font-size: 20px; font-weight: bold; letter-spacing: 4px; background: #fff; padding: 8px 15px; display: inline-block; margin-bottom: 8px; user-select: none; border: 1px solid #ddd; border-radius: 4px;"></div><br>
+      <input type="text" id="captchaInput" placeholder="Enter code" style="margin: 6px 0; padding: 6px; font-size: 13px; width: 150px;">
+      <button type="button" onclick="generateCaptcha()" style="padding: 5px 10px; margin-left: 5px; cursor: pointer; background: #f0f0f0; border: 1px solid #ccc; border-radius: 4px; font-size: 12px;">Refresh</button>
+    </div>
+  </div>
+
+  <div class="terms">
+    <label class="check">
+      <input type="checkbox">
+      <span>I agree to Terms & Conditions</span>
+    </label>
+    <label class="check">
+      <input type="checkbox">
+      <span>I accept Privacy Policy</span>
+    </label>
+  </div>
+
+  <button class="btn green" onclick="return validateRegister()">Register</button>
+
+  <p class="switch">
+    Already have an account?
+    <a onclick="showLogin()">Login</a>
+  </p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
