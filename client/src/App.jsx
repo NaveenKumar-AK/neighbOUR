@@ -6,7 +6,11 @@ import './App.css';
 // Pages
 import Login from './pages/Login';
 import Register from './pages/Register';
-import CustomerDashboard from './pages/CustomerDashboard';
+import CustomerLayout from './pages/CustomerLayout';
+import CustomerHome from './pages/CustomerHome';
+import CustomerSearch from './pages/CustomerSearch';
+import CustomerConversations from './pages/CustomerConversations';
+import CustomerProfile from './pages/CustomerProfile';
 import ProviderDashboard from './pages/ProviderDashboard';
 import AdminDashboard from './pages/AdminDashboard';
 import Chat from './pages/Chat';
@@ -28,7 +32,7 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
 // Top Navbar
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
-  if (!user) return null;
+  if (!user || user.role === 'customer') return null; // Hide global navbar for customers
 
   return (
     <nav className="navbar">
@@ -49,41 +53,64 @@ const DashboardRouter = () => {
     if(!user) return <Navigate to="/login" />
 
     switch(user.role) {
-        case 'customer': return <CustomerDashboard />;
+        case 'customer': return <Navigate to="/customer" />;
         case 'provider': return <ProviderDashboard />;
         case 'admin': return <AdminDashboard />;
         default: return <Navigate to="/login" />;
     }
 }
 
+import { Outlet } from 'react-router-dom';
+
+const ContainerLayout = () => (
+  <div className="container">
+    <Outlet />
+  </div>
+);
 
 function App() {
   return (
     <AuthProvider>
       <Router>
         <Navbar />
-        <div className="container">
+        <div>
           <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            
-            <Route path="/" element={
-              <ProtectedRoute>
-                 <DashboardRouter />
-              </ProtectedRoute>
-            } />
+            <Route element={<ContainerLayout />}>
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              
+              <Route path="/" element={
+                <ProtectedRoute>
+                   <DashboardRouter />
+                </ProtectedRoute>
+              } />
 
-            <Route path="/history" element={
-              <ProtectedRoute allowedRoles={['customer', 'provider', 'admin']}>
-                <JobHistory />
-              </ProtectedRoute>
-            } />
+              <Route path="/history" element={
+                <ProtectedRoute allowedRoles={['provider', 'admin']}>
+                  <JobHistory />
+                </ProtectedRoute>
+              } />
 
-            <Route path="/chat/:jobId" element={
-              <ProtectedRoute allowedRoles={['customer', 'provider']}>
-                <Chat />
+              <Route path="/chat/:jobId" element={
+                <ProtectedRoute allowedRoles={['customer', 'provider']}>
+                  <Chat />
+                </ProtectedRoute>
+              } />
+            </Route>
+
+            {/* Customer Nested Routes - Full Width */}
+            <Route path="/customer" element={
+              <ProtectedRoute allowedRoles={['customer']}>
+                <CustomerLayout />
               </ProtectedRoute>
-            } />
+            }>
+              <Route index element={<CustomerHome />} />
+              <Route path="search" element={<CustomerSearch />} />
+              <Route path="messages" element={<CustomerConversations />} />
+              <Route path="history" element={<JobHistory />} />
+              <Route path="profile" element={<CustomerProfile />} />
+            </Route>
+
           </Routes>
         </div>
       </Router>

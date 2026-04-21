@@ -1,0 +1,32 @@
+export const SERVICE_CATEGORIES = [
+  { name: 'Plumbing',      icon: 'bi-wrench-adjustable', color: '#F8FAFC', iconColor: '#475569' },
+  { name: 'Cleaning',      icon: 'bi-stars', color: '#F8FAFC', iconColor: '#475569' },
+  { name: 'Tutoring',      icon: 'bi-mortarboard', color: '#F8FAFC', iconColor: '#475569' },
+  { name: 'Electrical',    icon: 'bi-lightning-charge', color: '#F8FAFC', iconColor: '#475569' },
+  { name: 'Painting',      icon: 'bi-brush', color: '#F8FAFC', iconColor: '#475569' },
+  { name: 'Photography',   icon: 'bi-camera', color: '#F8FAFC', iconColor: '#475569' },
+  { name: 'Driving',       icon: 'bi-car-front', color: '#F8FAFC', iconColor: '#475569' },
+  { name: 'Carpentry',     icon: 'bi-hammer', color: '#F8FAFC', iconColor: '#475569' },
+  { name: 'Security',      icon: 'bi-shield-check', color: '#F8FAFC', iconColor: '#475569' },
+  { name: 'PC Repair',     icon: 'bi-laptop', color: '#F8FAFC', iconColor: '#475569' },
+  { name: 'Gardening',     icon: 'bi-flower1', color: '#F8FAFC', iconColor: '#475569' },
+  { name: 'Cooking',       icon: 'bi-egg-fried', color: '#F8FAFC', iconColor: '#475569' },
+  { name: 'Laundry',       icon: 'bi-droplet', color: '#F8FAFC', iconColor: '#475569' },
+  { name: 'Baby Sitting',  icon: 'bi-emoji-smile', color: '#F8FAFC', iconColor: '#475569' },
+  { name: 'Pet Care',      icon: 'bi-github', color: '#F8FAFC', iconColor: '#475569' }, 
+  { name: 'Moving Help',   icon: 'bi-box-seam', color: '#F8FAFC', iconColor: '#475569' },
+  { name: 'AC Repair',     icon: 'bi-snow', color: '#F8FAFC', iconColor: '#475569' },
+  { name: 'Welding',       icon: 'bi-nut', color: '#F8FAFC', iconColor: '#475569' },
+  { name: 'Tailoring',     icon: 'bi-scissors', color: '#F8FAFC', iconColor: '#475569' },
+  { name: 'Yoga / Fitness',icon: 'bi-activity', color: '#F8FAFC', iconColor: '#475569' },
+  { name: 'Hair & Beauty', icon: 'bi-scissors', color: '#F8FAFC', iconColor: '#475569' },
+  { name: 'Event Help',    icon: 'bi-balloon', color: '#F8FAFC', iconColor: '#475569' },
+  { name: 'Delivery',      icon: 'bi-bicycle', color: '#F8FAFC', iconColor: '#475569' },
+  { name: 'Elder Care',    icon: 'bi-heart-pulse', color: '#F8FAFC', iconColor: '#475569' },
+];
+
+export const RADIUS_OPTIONS = [
+  { label: '5 km',  value: 5000  },
+  { label: '10 km', value: 10000 },
+  { label: '20 km', value: 20000 },
+];

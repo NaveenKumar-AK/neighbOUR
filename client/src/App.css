@@ -1,9 +1,11 @@
 :root {
-  --primary: #F97316;      /* Warm Orange */
-  --primary-hover: #EA580C;
-  --bg: #FDF8F5;          /* Very slight warm off-white */
+  --primary: #0B3C5D;      /* Deep Blue */
+  --primary-hover: #082E47;
+  --accent: #00A896;       /* Teal/Green */
+  --accent-hover: #009383;
+  --bg: #F7F9FB;           /* Light Gray */
   --surface: #FFFFFF;
-  --text: #1F2937;
+  --text: #1F2937;         /* Dark Gray */
   --text-muted: #6B7280;
   --border: #E5E7EB;
   --success: #10B981;
@@ -55,24 +57,27 @@ a { text-decoration: none; color: inherit; }
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-.card-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; }
-.card-subtitle { color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1rem; }
+.card-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.25rem; }
+.card-subtitle { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
 
 .btn {
   display: inline-block;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
   cursor: pointer;
   border: none;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   transition: all 0.2s ease;
+  text-align: center;
 }
 
 .btn-primary { background: var(--primary); color: white; }
-.btn-primary:hover { background: var(--primary-hover); }
+.btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); box-shadow: 0 4px 6px rgba(11,60,93,0.15); }
 .btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
 .btn-secondary:hover { background: var(--bg); }
+.btn-accent { background: var(--accent); color: white; }
+.btn-accent:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 4px 6px rgba(0,168,150,0.15); }
 .btn-success { background: var(--success); color: white; }
 .btn-danger { background: var(--danger); color: white; }
 
@@ -80,17 +85,96 @@ a { text-decoration: none; color: inherit; }
 .form-label { display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.875rem; }
 .form-input {
   width: 100%;
-  padding: 0.625rem;
+  padding: 0.75rem;
   border: 1px solid var(--border);
-  border-radius: 6px;
-  font-size: 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: var(--surface);
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
-.form-input:focus { outline: 2px solid var(--primary); border-color: transparent;}
+.form-input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(11,60,93,0.1); }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 1.5rem;
+}
+
+/* Layout Wrapper for Bottom Navigation */
+.customer-layout {
+  padding-bottom: 80px; /* Space for bottom nav */
+  min-height: 100vh;
+}
+
+/* Bottom Navigation Bar */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem 0.5rem 0.6rem;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.02);
+  z-index: 1000;
+}
+
+.bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  color: #9CA3AF; /* muted gray */
+  font-size: 0.70rem;
+  font-weight: 400;
+  transition: color 0.2s;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.bottom-nav-item span.icon {
+  font-size: 1.25rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.bottom-nav-item.active {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.bottom-nav-item.active span.icon {
+  transform: scale(1.05);
+}
+
+/* Tabs */
+.tabs-container {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+}
+.tab-btn {
+  padding: 0.6rem 1.25rem;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.tab-btn:hover { background: var(--bg); }
+.tab-btn.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
 }
 
 /* Auth Pages */
